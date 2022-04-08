@@ -1,0 +1,26 @@
+.card{
+    display: flex;
+    padding: 3rem;
+    background: #FBFBFB;
+    margin-bottom: 2.5rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+
+    &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+
+    &__img{
+        width: 60px;
+        height: 60px;
+    }
+    &__content{
+        margin-left: 2rem;
+        align-self: center;
+        font-size: 1.4rem; 
+        font-weight: 700;
+        p:last-child{
+            color: #74798C;
+        }
+    }
+}

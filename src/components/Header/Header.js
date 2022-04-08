@@ -1,6 +1,6 @@
 import { Route, Link } from "react-router-dom";
 import Styles from "./Header.module.scss";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo/logo.png";
 
 const nameHeadersLinks = [
   {
@@ -32,7 +32,6 @@ const ListItemLink = ({ to, name }) => (
   Mais il existe une différence importante : le composant est appelé même si la route ne match pas.
    */
   <Route
-    path={to}
     children={() => (
       <li className={Styles.navItem}>
         <Link to={to}>{name}</Link>
