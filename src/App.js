@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import {
   BrowserRouter as Router,
   Redirect,
@@ -8,16 +6,23 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header/Header";
 import SideMenu from "./components/SideMenu/SideMenu";
+import useApiTest from "./mock/mock";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
-  // list of routes
+  /**
+   * call api Boolean => true by default
+   * true  = data_mocks
+   * false = fetch api
+   */
+  const api = useApiTest();
+
   const routes = [
     {
       name: "User details",
       path: "/user/:id",
-      component: <Dashboard />,
+      component: <Dashboard api={api} />,
     },
     {
       name: "Dashboard empty",
@@ -31,10 +36,11 @@ function App() {
       <SideMenu />
       <Switch>
         {routes.map((route, index) => (
-          <Route path={route.path} key={index}>
+          <Route exact path={route.path} key={index}>
             {route.component}
           </Route>
         ))}
+        <Redirect to="/user/18"></Redirect>
       </Switch>
     </Router>
   );

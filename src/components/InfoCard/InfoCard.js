@@ -6,12 +6,6 @@ import icon_apple from "../../assets/icons/apple.png";
 import icon_cheeseburger from "../../assets/icons/cheeseburger.png";
 
 const InfoCard = ({ itemClass, user }) => {
-  const separator = (numb) => {
-    let str = numb.toString().split(".");
-    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return str.join(".");
-  };
-
   const numberFormatter = Intl.NumberFormat("en-EN");
   // keyData
   const keyData = [

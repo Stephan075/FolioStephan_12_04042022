@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  USER_MAIN_DATA,
-  USER_ACTIVITY,
-  USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCE,
-} from "../../mock/data_mocks";
 
 import DailyActivityChart from "../../components/DailyActivityChart/DailyActivityChart";
 import InfoCard from "../../components/InfoCard/InfoCard";
@@ -17,7 +11,7 @@ import PerformanceChart from "../../components/PerformanceChart/PerformanceChart
 /**
  * dashbord with all the component of the chart
  */
-const Dashboard = () => {
+const Dashboard = ({ api }) => {
   const [user, setUser] = useState({
     userInfos: {},
     keyData: {},
@@ -27,13 +21,13 @@ const Dashboard = () => {
 
   // get user info
   useEffect(() => {
-    USER_MAIN_DATA.map((user) => {
+    api.USER_MAIN_DATA.map((user) => {
       if (user.id === parseInt(id)) {
         setUser(user);
       }
       return null;
     });
-  }, [id]);
+  }, [api.USER_MAIN_DATA, id]);
 
   return (
     <div className={Styles.dashboardContainer}>

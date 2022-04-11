@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
+} from "./data_mocks";
 
-const useApi = (initialValue = true) => {
-  const [value, setValue] = useState(initialValue);
+const useApiTest = (initialValue = true) => {
+  const [data, setData] = useState(null);
+  if (initialValue) {
+    return {
+      USER_MAIN_DATA,
+      USER_ACTIVITY,
+      USER_AVERAGE_SESSIONS,
+      USER_PERFORMANCE,
+    };
+  } else {
+    fetch("http://localhost:3001/").then((dataa) => {
+      dataa.json().then((dataa) => {
+        setData({ dataa });
+        console.log(dataa);
+      });
+    });
 
-  return [
-    value,
-    {
-      set: setValue,
-      toggle: () => setValue((flag) => !flag),
-    },
-  ];
+    console.log(data);
+  }
 };
 
-// https://dev.to/selvaece25/using-facade-pattern-create-react-custom-hooks-as-reusable-and-reliable-5bh8
+export default useApiTest;
