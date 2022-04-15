@@ -4,7 +4,7 @@
 }
 .dashboard {
   &__main {
-    margin: 5rem;
+    margin: 5rem 5rem 0 5rem;
   }
 
   &__header {
@@ -25,13 +25,16 @@
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 258px ;
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    // grid-template-columns: repeat(4, 258px);
+    // grid-template-rows: repeat(2, auto);
+    grid-template-rows: 1fr 250px;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
     grid-template-areas:
       "DailyActivityChart DailyActivityChart DailyActivityChart InfoCard"
       "AverageSessionDurationChart PerformanceChart ScoreChart InfoCard";
+
 
     &Elem {
       border: 2px solid black;
@@ -39,6 +42,7 @@
         background: #fbfbfb;
         grid-area: DailyActivityChart;
         border-radius: 5px;
+        position: relative;
       }
 
       &:nth-child(2) {
@@ -48,9 +52,10 @@
       }
 
       &:nth-child(3) {
-        background-color: floralwhite;
+        background: #ff0000;
         grid-area: AverageSessionDurationChart;
         border-radius: 5px;
+        position: relative;
       }
 
       &:nth-child(4) {

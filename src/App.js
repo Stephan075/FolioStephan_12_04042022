@@ -6,23 +6,16 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header/Header";
 import SideMenu from "./components/SideMenu/SideMenu";
-import useApiTest from "./mock/mock";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
-  /**
-   * call api Boolean => true by default
-   * true  = data_mocks
-   * false = fetch api
-   */
-  const api = useApiTest();
-
   const routes = [
     {
       name: "User details",
       path: "/user/:id",
-      component: <Dashboard api={api} />,
+      component: <Dashboard />,
+      error: <NotFound />,
     },
     {
       name: "Dashboard empty",

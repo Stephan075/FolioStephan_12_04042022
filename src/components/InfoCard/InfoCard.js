@@ -1,39 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./InfoCard.module.scss";
-import icon_energy from "../../assets/icons/energy.png";
-import icon_chicken from "../../assets/icons/chicken.png";
-import icon_apple from "../../assets/icons/apple.png";
-import icon_cheeseburger from "../../assets/icons/cheeseburger.png";
 
-const InfoCard = ({ itemClass, user }) => {
-  const numberFormatter = Intl.NumberFormat("en-EN");
+const InfoCard = ({ itemClass, keyData }) => {
+  // const [keyData, setkeyData] = useState([]);
+  // console.log(keyData);
   // keyData
-  const keyData = [
-    {
-      icon: icon_energy,
-      number: numberFormatter.format(user.keyData.calorieCount),
-      unit: "kCal",
-      subtitle: "Calories",
-    },
-    {
-      icon: icon_chicken,
-      number: user.keyData.proteinCount,
-      unit: "g",
-      subtitle: "Proteines",
-    },
-    {
-      icon: icon_apple,
-      number: user.keyData.carbohydrateCount,
-      unit: "g",
-      subtitle: "Glucides",
-    },
-    {
-      icon: icon_cheeseburger,
-      number: user.keyData.lipidCount,
-      unit: "g",
-      subtitle: "Lipides",
-    },
-  ];
   return (
     <div className={itemClass}>
       {keyData.map((key, index) => (
