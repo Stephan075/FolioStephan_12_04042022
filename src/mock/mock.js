@@ -9,11 +9,6 @@ import {
 
 const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
   let i = 0;
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    setError(true);
-  }, []);
 
   const getData = () => {
     dataRef.current = {
@@ -50,14 +45,13 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
             console.log(
               "Il y a eu un problème avec l'opération fetch: " + e.message
             );
-            setError(true);
           });
       });
     }
     // console.log(error);
     return dataRef.current;
   };
-  useImperativeHandle(ref, () => ({ getDatas: getData, error: error }));
+  useImperativeHandle(ref, () => ({ getDatas: getData }));
 });
 
 export default UseApiTest;
