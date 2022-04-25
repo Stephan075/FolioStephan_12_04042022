@@ -5,9 +5,10 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
+
+import { dayFormatters } from "../../utils/dataFormatting";
 import Styles from "./DailyActivityChart.module.scss";
 
 const DailyActivityChart = ({ itemClass, activity }) => {
@@ -21,7 +22,7 @@ const DailyActivityChart = ({ itemClass, activity }) => {
   };
 
   return (
-    <div className={itemClass}>
+    <div className={itemClass} style={{ width: "100%", height: 350 }}>
       <h2 className={Styles.DailyActivityTitle}>Activité quotidienne</h2>
 
       <div className={Styles.DailyActivityLegend}>
@@ -35,34 +36,44 @@ const DailyActivityChart = ({ itemClass, activity }) => {
         </p>
       </div>
 
-      <ResponsiveContainer width="100%" aspect={3} height="100%">
+      <ResponsiveContainer>
         <BarChart
+          width={500}
+          height={400}
           data={activity}
-          margin={{ top: 80, right: 48, bottom: 32, left: 48 }}
-          barSize={7}
+          margin={{ top: 80, right: 48, bottom: 15, left: 48 }}
+          barGap={10}
         >
-          <CartesianGrid strokeDasharray="2 2 " />
-          <XAxis dataKey="index" tickLine={false} axisLine={false} />
-          <YAxis orientation="right" />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+
+          <XAxis
+            dataKey="day"
+            dy={16}
+            tickFormatter={dayFormatters}
+            tickLine={false}
+            axisLine={false}
+            tick={{ fontSize: 14, fontWeight: 500 }}
+            scale="point"
+          />
+
+          <YAxis
+            orientation="right"
+            axisLine={false}
+            tickLine={false}
+            dx={30}
+          />
+
           <Tooltip
             content={<CustomTooltip />}
             cursor={{
               fill: "rgba(0, 0, 0, 0.1)",
             }}
           />
-          {/* <Legend
-            width={300}
-            wrapperStyle={{
-              top: -20,
-              right: 25,
-              color: "#74798C",
-            }}
-          /> */}
           <Bar
             radius={[50, 50, 0, 0]}
             legendType="circle"
             name="Poids (kg)"
-            barSize={7}
+            barSize={8}
             dataKey="kilogram"
             fill="#282D30"
           />
@@ -70,7 +81,7 @@ const DailyActivityChart = ({ itemClass, activity }) => {
             radius={[50, 50, 0, 0]}
             legendType="circle"
             name="Calories brulées (kCal)"
-            barSize={7}
+            barSize={8}
             dataKey="calories"
             fill="#E60000"
           />

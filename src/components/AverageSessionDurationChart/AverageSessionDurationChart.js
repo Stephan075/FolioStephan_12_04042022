@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { dayFormatter } from "../../utils/dataFormatting";
+import { dayFormatters_dayOfTheweek } from "../../utils/dataFormatting";
 
 const AverageSessionDurationChart = ({ itemClass, data }) => {
   function CustomizedLegend() {
@@ -68,8 +68,8 @@ const AverageSessionDurationChart = ({ itemClass, data }) => {
   ];
 
   return (
-    <div className={itemClass}>
-      <ResponsiveContainer width="100%" height="100%">
+    <div className={itemClass} style={{ width: "100%", height: 263 }}>
+      <ResponsiveContainer>
         <LineChart
           margin={{
             top: 5,
@@ -92,7 +92,7 @@ const AverageSessionDurationChart = ({ itemClass, data }) => {
           />
           <XAxis
             dataKey="day"
-            tickFormatter={dayFormatter}
+            tickFormatter={dayFormatters_dayOfTheweek}
             axisLine={false}
             tickLine={false}
             padding={{ left: 10, right: 10 }}

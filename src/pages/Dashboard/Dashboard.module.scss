@@ -1,15 +1,12 @@
 .dashboardContainer {
-  background-color: red;
   margin-left: 117px;
 }
 .dashboard {
   &__main {
-    margin: 5rem 5rem 0 5rem;
+    margin: 13rem 5rem 0 5rem;
   }
-
   &__header {
     font-size: 2.4rem;
-    background-color: yellow;
     margin-bottom: 4rem;
     &Name {
       margin: 0;
@@ -22,71 +19,109 @@
       font-size: 1.8rem;
     }
   }
+}
 
-  &__content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    // grid-template-columns: repeat(4, 258px);
-    // grid-template-rows: repeat(2, auto);
-    grid-template-rows: 1fr 250px;
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
-    grid-template-areas:
-      "DailyActivityChart DailyActivityChart DailyActivityChart InfoCard"
-      "AverageSessionDurationChart PerformanceChart ScoreChart InfoCard";
+.dashboard__content {
+  .item_1 {
+    position: relative;
+    grid-area: d;
+    background: #fbfbfb;
+  }
 
+  .item_2 {
+    grid-area: i;
+  }
 
-    &Elem {
-      border: 2px solid black;
-      &:nth-child(1) {
-        background: #fbfbfb;
-        grid-area: DailyActivityChart;
-        border-radius: 5px;
-        position: relative;
-      }
+  .item_3 {
+    background: #ff0000;
 
-      &:nth-child(2) {
-        // background-color: lawngreen;
-        grid-area: InfoCard;
-        border-radius: 5px;
-      }
+    grid-area: a;
+  }
 
-      &:nth-child(3) {
-        background: #ff0000;
-        grid-area: AverageSessionDurationChart;
-        border-radius: 5px;
-        position: relative;
-      }
+  .item_4 {
+    background: #282d30;
 
-      &:nth-child(4) {
-        background-color: hotpink;
-        grid-area: PerformanceChart;
-        border-radius: 5px;
-      }
+    grid-area: p;
+  }
 
-      &:nth-child(5) {
-        background-color: darkblue;
-        grid-area: ScoreChart;
-        border-radius: 5px;
-      }
-    }
+  .item_5 {
+    position: relative;
+    background: #fbfbfb;
+
+    grid-area: s;
   }
 }
 
-@media only screen and (max-width: 767px) {
-  .dashboard {
-    &__content {
-      grid-template-columns: 100%;
-      grid-template-areas:
-        "InfoCard"
-        "DailyActivityChart"
-        "AverageSessionDurationChart"
-        "PerformanceChart"
-        "ScoreChart";
-    }
+@media (min-width: 768px) {
+  .dashboard__content {
+    margin: 20px auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(12, auto);
 
-    &__main {
-      margin: 0;
-    }
+    grid-template-areas:
+      "d d d d  d d d d  d d d d"
+      "i i i i  i i i i  i i i i"
+      "a a a a  a a a a  a a a a"
+      "p p p p  p p p p  p p p p"
+      "s s s s  s s s s  s s s s";
+  }
+
+  .dashboard__content .item_1 {
+    grid-area: d;
+  }
+  .dashboard__content .item_2 {
+    grid-area: i;
+  }
+  .dashboard__content .item_3 {
+    grid-area: a;
+    width: 90%;
+  }
+  .dashboard__content .item_4 {
+    grid-area: p;
+    height: 200px;
+  }
+  .dashboard__content .item_5 {
+    grid-area: s;
+  }
+}
+
+@media (min-width: 1080px) {
+  .dashboard__content {
+    margin: 20px auto;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 180px;
+    grid-template-rows: 350px 270px;
+
+    grid-template-areas:
+      "d d d d  d d d d  d d d i  i i i i"
+      "a a a a  p p p p  s s s i  i i i i";
+  }
+
+  .dashboard__content .item_1 {
+    width: 100%;
+    grid-area: d;
+    border-radius: 5px;
+  }
+  .dashboard__content .item_2 {
+    width: 100%;
+    grid-area: i;
+    border-radius: 5px;
+  }
+  .dashboard__content .item_3 {
+    width: 100%;
+    grid-area: a;
+    border-radius: 5px;
+  }
+  .dashboard__content .item_4 {
+    width: 100%;
+    grid-area: p;
+    border-radius: 5px;
+  }
+  .dashboard__content .item_5 {
+    width: 100%;
+    grid-area: s;
+    border-radius: 5px;
   }
 }

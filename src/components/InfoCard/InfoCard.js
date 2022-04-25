@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
 import Styles from "./InfoCard.module.scss";
 
 const InfoCard = ({ itemClass, keyData }) => {
-  // const [keyData, setkeyData] = useState([]);
-  // console.log(keyData);
-  // keyData
   return (
     <div className={itemClass}>
       {keyData.map((key, index) => (

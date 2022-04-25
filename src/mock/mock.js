@@ -1,4 +1,5 @@
-import { forwardRef, useImperativeHandle } from "react";
+import { useEffect } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
@@ -8,41 +9,12 @@ import {
 
 const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
   let i = 0;
-  // const getData = () => {
-  //   dataRef.current = {
-  //     USER_MAIN_DATA: USER_MAIN_DATA.filter((user) => {
-  //       return user.id === parseInt(id);
-  //     }),
-  //     USER_ACTIVITY: USER_ACTIVITY.filter((user) => {
-  //       return user.userId === parseInt(id);
-  //     }),
-  //     USER_AVERAGE_SESSIONS: USER_AVERAGE_SESSIONS.filter((user) => {
-  //       return user.userId === parseInt(id);
-  //     }),
-  //     USER_PERFORMANCE: USER_PERFORMANCE.filter((user) => {
-  //       return user.userId === parseInt(id);
-  //     }),
-  //   };
+  const [error, setError] = useState(false);
 
-  //   if (!initialValue) {
-  //     const url = "http://localhost:3001";
+  useEffect(() => {
+    setError(true);
+  }, []);
 
-  //     const dataPref = ["", "/activity", "/average-sessions", "/performance"];
-
-  //     dataPref.map((pref) => {
-  //       fetch(`${url}/user/${id}${pref}`).then((dataa) => {
-  //         dataa.json().then((dataa) => {
-  //           // setData({ dataa });
-  //           // console.log(dataa);
-  //           // %3 :3 item dans le tab
-  //           dataRef.current[Object.keys(dataRef.current)[i++ % 3]] = dataa;
-  //         });
-  //       });
-  //     });
-  //     // console.log(data);
-  //   }
-  //   return dataRef.current;
-  // };
   const getData = () => {
     dataRef.current = {
       USER_MAIN_DATA: USER_MAIN_DATA.filter((user) => {
@@ -65,22 +37,27 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
       const dataPref = ["", "/activity", "/average-sessions", "/performance"];
 
       dataPref.map((pref) => {
-        fetch(`${url}/user/${id}${pref}`).then((dataa) => {
-          dataa.json().then((dataa) => {
-            // setData({ dataa });
-            // console.log(dataa);
-            // %3 :3 item dans le tab
-            dataRef.current[Object.keys(dataRef.current)[i++ % 3]] = dataa;
+        fetch(`${url}/user/${id}${pref}`)
+          .then((dataa) => {
+            dataa.json().then((dataa) => {
+              // setData({ dataa });
+              // console.log(dataa);
+              // %3 :3 item dans le tab
+              dataRef.current[Object.keys(dataRef.current)[i++ % 3]] = dataa;
+            });
+          })
+          .catch((e) => {
+            console.log(
+              "Il y a eu un problème avec l'opération fetch: " + e.message
+            );
+            setError(true);
           });
-        });
       });
-      // console.log(data);
     }
+    // console.log(error);
     return dataRef.current;
   };
-  useImperativeHandle(ref, () => ({ getDatas: getData }));
-
-  return null;
+  useImperativeHandle(ref, () => ({ getDatas: getData, error: error }));
 });
 
 export default UseApiTest;

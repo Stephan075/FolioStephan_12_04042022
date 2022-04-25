@@ -7,6 +7,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-top: 50px;
+  top: 0;
 
   ul {
     display: flex;
@@ -26,13 +28,12 @@
     }
   }
 
-  .copiryght {
+  &Footer {
+    font-size: 1.2rem;
+    color: white;
+    display: flex;
+    align-items: center;
     writing-mode: vertical-rl;
-    text-orientation: sideways-right;
-    color: #ffffff;
-    font-size: 12px;
-    padding-left: 35%;
+    transform: rotate(180deg);
   }
 }
-
-

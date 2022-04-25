@@ -25,10 +25,20 @@ export const pushItemAndAddIndex = (
 
 /**
  *
+ * @param {string} date 2020-07-04
+ * @returns {number} day of the month
+ */
+export const dayFormatters = (date) => {
+  const day = new Date(date).getDate();
+  return day;
+};
+
+/**
+ *
  * @param {String} day
  * @returns
  */
-export const dayFormatter = (day) => {
+export const dayFormatters_dayOfTheweek = (day) => {
   switch (day) {
     case 1:
       day = "L";
