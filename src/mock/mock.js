@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { forwardRef, useImperativeHandle, useState } from "react";
+import { forwardRef, useImperativeHandle } from "react";
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
@@ -48,7 +47,6 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
           });
       });
     }
-    // console.log(error);
     return dataRef.current;
   };
   useImperativeHandle(ref, () => ({ getDatas: getData }));

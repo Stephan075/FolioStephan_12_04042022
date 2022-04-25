@@ -76,25 +76,22 @@ const Dashboard = () => {
   }, []);
 
   /**
-   * Data user ACTIVITY
+   * Data user ACTIVITY "Activité quitidienne"
    */
   useEffect(() => {
     const path = compoRef.current?.getDatas().USER_ACTIVITY[0];
-    let activityData = [];
     if (path) {
-      console.log(path);
-      return pushItemAndAddIndex(path?.sessions, setActivity, activityData);
+      return setActivity(path.sessions);
     }
   }, []);
 
   /**
-   * Data user SESSIONS
+   * Data user SESSIONS "Durée moyenne des sessions"
    */
   useEffect(() => {
-    let sessionData = [];
     const path = compoRef.current?.getDatas().USER_AVERAGE_SESSIONS[0];
     if (path) {
-      pushItemAndAddIndex(path?.sessions, setSession, sessionData);
+      return setSession(path.sessions);
     }
   }, []);
 
@@ -116,6 +113,9 @@ const Dashboard = () => {
     }
   }, []);
 
+  /**
+   * Data user SCORE
+   */
   useEffect(() => {
     const path = compoRef.current?.getDatas().USER_MAIN_DATA[0];
     if (path) {
@@ -126,15 +126,14 @@ const Dashboard = () => {
 
   return (
     <>
+      {/* initialValue default = true ; false = api connection */}
       <UseApiTest
         initialValue={false}
         dataRef={dataRef}
         id={id}
         ref={compoRef}
       />
-      {console.log("activity " + activity.length)}
-      {console.log("session " + session.length)}
-      {keyData && activity.length > 0 && session.length ? (
+      {keyData && activity && session ? (
         <>
           <div>
             <div className={Styles.dashboardContainer}>
