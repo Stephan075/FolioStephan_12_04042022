@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import {
   PolarAngleAxis,
@@ -66,6 +67,11 @@ const PerformanceChart = ({ itemClass, performance }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+PerformanceChart.propTypes = {
+  itemClass: PropTypes.string.isRequired,
+  performance: PropTypes.array.isRequired,
 };
 
 export default PerformanceChart;

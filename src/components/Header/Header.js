@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Route, Link } from "react-router-dom";
 import Styles from "./Header.module.scss";
 import logo from "../../assets/logo/logo.png";
@@ -61,6 +62,11 @@ const Header = () => {
       </nav>
     </header>
   );
+};
+
+ListItemLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default Header;

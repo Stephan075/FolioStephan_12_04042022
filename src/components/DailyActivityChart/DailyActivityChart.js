@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {
   BarChart,
   Bar,
@@ -103,4 +104,8 @@ function CustomTooltip({ active, payload }) {
   return null;
 }
 
+DailyActivityChart.propTypes = {
+  activity: PropTypes.array.isRequired,
+  itemClass: PropTypes.string.isRequired,
+};
 export default DailyActivityChart;

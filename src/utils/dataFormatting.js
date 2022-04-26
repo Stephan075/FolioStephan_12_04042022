@@ -1,3 +1,4 @@
+// Constructor to create objects to format numbers according to the locale
 export const numberFormatter = Intl.NumberFormat("en-EN");
 
 /**

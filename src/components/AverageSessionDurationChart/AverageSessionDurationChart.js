@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Styles from "./AverageSessionDurationChart.module.scss";
 
@@ -14,27 +15,6 @@ import {
 import { dayFormatters_dayOfTheweek } from "../../utils/dataFormatting";
 
 const AverageSessionDurationChart = ({ itemClass, data }) => {
-  function CustomizedLegend() {
-    return (
-      <p className={Styles.customLegend}>
-        Durée moyenne des <br />
-        sessions
-      </p>
-    );
-  }
-
-  function CustomTooltip({ active, payload }) {
-    // https://recharts.org/en-US/guide/customize
-    if (active) {
-      return (
-        <div className={Styles.customTooltip}>
-          <p className={Styles.label}>{payload[0].value + " min"}</p>
-        </div>
-      );
-    }
-    return null;
-  }
-
   // data test
   const dataTest = [
     {
@@ -66,6 +46,27 @@ const AverageSessionDurationChart = ({ itemClass, data }) => {
       sessionLength: 60,
     },
   ];
+
+  function CustomizedLegend() {
+    return (
+      <p className={Styles.customLegend}>
+        Durée moyenne des <br />
+        sessions
+      </p>
+    );
+  }
+
+  function CustomTooltip({ active, payload }) {
+    // https://recharts.org/en-US/guide/customize
+    if (active && payload) {
+      return (
+        <div className={Styles.customTooltip}>
+          <p className={Styles.label}>{payload[0].value + " min"}</p>
+        </div>
+      );
+    }
+    return null;
+  }
 
   return (
     <div className={itemClass} style={{ width: "100%", height: 263 }}>
@@ -135,6 +136,11 @@ const AverageSessionDurationChart = ({ itemClass, data }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+AverageSessionDurationChart.propTypes = {
+  data: PropTypes.array.isRequired,
+  itemClass: PropTypes.string.isRequired,
 };
 
 export default AverageSessionDurationChart;

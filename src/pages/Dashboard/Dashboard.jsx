@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -15,10 +16,7 @@ import icon_chicken from "../../assets/icons/chicken.png";
 import icon_apple from "../../assets/icons/apple.png";
 import icon_cheeseburger from "../../assets/icons/cheeseburger.png";
 
-import {
-  pushItemAndAddIndex,
-  numberFormatter,
-} from "../../utils/dataFormatting";
+import { numberFormatter } from "../../utils/dataFormatting";
 import NotFound from "../NotFound/NotFound";
 
 /**
@@ -26,6 +24,7 @@ import NotFound from "../NotFound/NotFound";
  */
 const Dashboard = () => {
   let { id } = useParams();
+  id = parseInt(id);
 
   // ref juste une variable en gros
   const dataRef = useRef();

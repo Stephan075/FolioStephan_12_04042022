@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { forwardRef, useImperativeHandle } from "react";
 import {
   USER_MAIN_DATA,
@@ -12,16 +13,16 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
   const getData = () => {
     dataRef.current = {
       USER_MAIN_DATA: USER_MAIN_DATA.filter((user) => {
-        return user.id === parseInt(id);
+        return user.id === id;
       }),
       USER_ACTIVITY: USER_ACTIVITY.filter((user) => {
-        return user.userId === parseInt(id);
+        return user.userId === id;
       }),
       USER_AVERAGE_SESSIONS: USER_AVERAGE_SESSIONS.filter((user) => {
-        return user.userId === parseInt(id);
+        return user.userId === id;
       }),
       USER_PERFORMANCE: USER_PERFORMANCE.filter((user) => {
-        return user.userId === parseInt(id);
+        return user.userId === id;
       }),
     };
 
@@ -32,12 +33,10 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
 
       dataPref.map((pref) => {
         fetch(`${url}/user/${id}${pref}`)
-          .then((dataa) => {
-            dataa.json().then((dataa) => {
-              // setData({ dataa });
-              // console.log(dataa);
+          .then((response) => {
+            response.json().then((data) => {
               // %3 :3 item dans le tab
-              dataRef.current[Object.keys(dataRef.current)[i++ % 3]] = dataa;
+              dataRef.current[Object.keys(dataRef.current)[i++ % 3]] = data;
             });
           })
           .catch((e) => {
@@ -51,5 +50,11 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
   };
   useImperativeHandle(ref, () => ({ getDatas: getData }));
 });
+
+UseApiTest.propTypes = {
+  initialValue: PropTypes.bool.isRequired,
+  dataRef: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+};
 
 export default UseApiTest;

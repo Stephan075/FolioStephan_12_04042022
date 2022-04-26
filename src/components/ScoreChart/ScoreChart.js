@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Styles from "./ScoreChart.module.scss";
 
@@ -63,6 +64,15 @@ const CustomLabel = ({ score }) => {
       objectif
     </p>
   );
+};
+
+ScoreChart.propTypes = {
+  itemClass: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+};
+
+CustomLabel.propTypes = {
+  score: PropTypes.number.isRequired,
 };
 
 export default ScoreChart;

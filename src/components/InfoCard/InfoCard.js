@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Styles from "./InfoCard.module.scss";
 
 const InfoCard = ({ itemClass, keyData }) => {
@@ -21,6 +22,11 @@ const InfoCard = ({ itemClass, keyData }) => {
       ))}
     </div>
   );
+};
+
+InfoCard.propTypes = {
+  keyData: PropTypes.array.isRequired,
+  itemClass: PropTypes.string.isRequired,
 };
 
 export default InfoCard;
