@@ -128,7 +128,7 @@ const Dashboard = () => {
     <>
       {/* initialValue default = true ; false = api connection */}
       <UseApiTest
-        initialValue={false}
+        initialValue={true}
         dataRef={dataRef}
         id={id}
         ref={compoRef}
