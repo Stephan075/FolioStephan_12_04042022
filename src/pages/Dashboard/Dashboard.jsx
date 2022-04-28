@@ -1,5 +1,4 @@
-import PropTypes from "prop-types";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import DailyActivityChart from "../../components/DailyActivityChart/DailyActivityChart";
@@ -42,7 +41,7 @@ const Dashboard = () => {
    */
   useEffect(() => {
     const path = compoRef.current?.getDatas().USER_MAIN_DATA[0];
-    console.log(path);
+    // console.log(path);
     if (path) {
       setkeyData([
         {
@@ -127,7 +126,7 @@ const Dashboard = () => {
     <>
       {/* initialValue default = true ; false = api connection */}
       <UseApiTest
-        initialValue={true}
+        initialValue={false}
         dataRef={dataRef}
         id={id}
         ref={compoRef}

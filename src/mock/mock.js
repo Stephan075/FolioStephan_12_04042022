@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { forwardRef, useImperativeHandle } from "react";
 import {
   USER_MAIN_DATA,
@@ -27,7 +26,7 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
     };
 
     if (!initialValue) {
-      const url = "http://localhost:3001";
+      const url = "http://localhost:3000";
 
       const dataPref = ["", "/activity", "/average-sessions", "/performance"];
 
@@ -50,11 +49,5 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
   };
   useImperativeHandle(ref, () => ({ getDatas: getData }));
 });
-
-UseApiTest.propTypes = {
-  initialValue: PropTypes.bool.isRequired,
-  dataRef: PropTypes.object.isRequired,
-  id: PropTypes.number.isRequired,
-};
 
 export default UseApiTest;

@@ -12,6 +12,11 @@ import {
 import { dayFormatters } from "../../utils/dataFormatting";
 import Styles from "./DailyActivityChart.module.scss";
 
+/**
+ *
+ * @param {*} param0
+ * @returns
+ */
 const DailyActivityChart = ({ itemClass, activity }) => {
   const Radius = ({ background }) => {
     return (

@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
 import Styles from "./NotFound.module.scss";
 import data from "../../mock/mock_test";
 import ClipboardCopy from "../../components/ClipboardCopy/ClipboardCopy";
-import { useEffect, useState } from "react";
 
 /**
  * dashbord with all the component of the chart
@@ -32,7 +32,7 @@ const NotFound = () => {
                 </p>
 
                 <ClipboardCopy
-                  copyText={`http://localhost:3000/user/${data.id}`}
+                  copyText={`http://localhost:3001/user/${data.id}`}
                 />
               </div>
             ))}

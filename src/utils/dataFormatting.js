@@ -3,29 +3,6 @@ export const numberFormatter = Intl.NumberFormat("en-EN");
 
 /**
  *
- * @param {array} items
- * @param {array} setArray
- * @param {array} initialArray
- * @param {boolean} key
- */
-export const pushItemAndAddIndex = (
-  items,
-  setArray,
-  initialArray,
-  key = true
-) => {
-  for (const [i, item] of items.entries()) {
-    const index = { index: i + 1 };
-    if (key) {
-      setArray((initialArray) => [...initialArray, { ...item, ...index }]);
-    } else {
-      setArray((initialArray) => [...initialArray, { ...item }]);
-    }
-  }
-};
-
-/**
- *
  * @param {string} date 2020-07-04
  * @returns {number} day of the month
  */
