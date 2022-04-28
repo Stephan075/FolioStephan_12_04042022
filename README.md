@@ -1,8 +1,8 @@
 # SportSee :
 
-Projet 12 - Développez un tableau de bord d'analytics avec React du parcours Développeur Front-end d'OpenClassrooms.
+SportSee a pour objectif de développer une nouvelle version de la page profil de l’utilisateur. Cette page va notamment permettre à l’utilisateur de suivre le nombre de sessions réalisées ainsi que le nombre de calories brûlées.
 
-## Installation (En français ci-dessous)
+## Installation (In French below)
 
 ## Prerequisites
 
