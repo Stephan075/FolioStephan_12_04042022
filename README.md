@@ -29,14 +29,14 @@ Projet 12 - Développez un tableau de bord d'analytics avec React du parcours D�
 
 ## Installation et lancement du front-end
 
-1 )Cloner le repo du back-end de SportSee :
-`git clone https://github.com/Stephan075/FolioStephan_12_04042022.git`
+1. Cloner le repo du back-end de SportSee :
+   `git clone https://github.com/Stephan075/FolioStephan_12_04042022.git`
 
 2. installer ses dépendances
    `npm install`
 
-3)Lancer le back-end sur le port 3000 (port par défaut) :
-`npm start`
+3. Lancer le back-end sur le port 3000 (port par défaut) :
+   `npm start`
 
 Le front-end est alors consultable à l'URL http://localhost:3001
 
