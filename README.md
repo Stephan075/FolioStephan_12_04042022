@@ -4,8 +4,6 @@ Projet 12 - Développez un tableau de bord d'analytics avec React du parcours D�
 
 ## Installation (En français ci-dessous)
 
----
-
 ## Prerequisites
 
 - [NodeJS](https://nodejs.org/en/) (version 16.14.0)
@@ -56,11 +54,7 @@ The front-end is available at the URL: http://localhost:3001
   - http://localhost:3001/user/12
   - http://localhost:3001/user/18
 
----
-
 ## Installation (En français)
-
----
 
 ## Prérequis
 
