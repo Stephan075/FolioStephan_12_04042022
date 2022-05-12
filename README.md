@@ -6,6 +6,8 @@ SportSee a pour objectif de développer une nouvelle version de la page profil d
 
 ## Prerequisites
 
+- Recommended text editor [Visual Studio Code](https://code.visualstudio.com)
+
 - [NodeJS](https://nodejs.org/en/) (version 16.14.0)
 
 - [Npm](https://www.npmjs.com/)
@@ -57,6 +59,8 @@ The front-end is available at the URL: http://localhost:3001
 ## Installation (En français)
 
 ## Prérequis
+
+- Éditeur de texte recommandé [Visual Studio Code](https://code.visualstudio.com)
 
 - [NodeJS](https://nodejs.org/en/) (version 16.14.0)
 
