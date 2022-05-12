@@ -4,7 +4,7 @@ export const numberFormatter = Intl.NumberFormat("en-EN");
 /**
  *
  * @param {string} date 2020-07-04
- * @returns {number} day of the month
+ * @returns {number}  day of the week (ex: 1,2,3...)
  */
 export const dayFormatters = (date) => {
   const day = new Date(date).getDate();
@@ -13,8 +13,8 @@ export const dayFormatters = (date) => {
 
 /**
  *
- * @param {String} day
- * @returns
+ * @param {Number} day
+ * @returns {String} day ex : L,M,M,J,V...
  */
 export const dayFormatters_dayOfTheweek = (day) => {
   switch (day) {
@@ -42,5 +42,6 @@ export const dayFormatters_dayOfTheweek = (day) => {
     default:
       return day;
   }
+
   return day;
 };

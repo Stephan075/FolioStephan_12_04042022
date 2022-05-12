@@ -46,28 +46,6 @@ const AverageSessionDurationChart = ({ itemClass, data }) => {
       sessionLength: 60,
     },
   ];
-
-  function CustomizedLegend() {
-    return (
-      <p className={Styles.customLegend}>
-        Durée moyenne des <br />
-        sessions
-      </p>
-    );
-  }
-
-  function CustomTooltip({ active, payload }) {
-    // https://recharts.org/en-US/guide/customize
-    if (active && payload) {
-      return (
-        <div className={Styles.customTooltip}>
-          <p className={Styles.label}>{payload[0].value + " min"}</p>
-        </div>
-      );
-    }
-    return null;
-  }
-
   return (
     <div className={itemClass} style={{ width: "100%", height: 263 }}>
       <ResponsiveContainer>
@@ -136,6 +114,27 @@ const AverageSessionDurationChart = ({ itemClass, data }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+const CustomizedLegend = () => {
+  return (
+    <p className={Styles.customLegend}>
+      Durée moyenne des <br />
+      sessions
+    </p>
+  );
+};
+
+const CustomTooltip = ({ active, payload }) => {
+  // https://recharts.org/en-US/guide/customize
+  if (active && payload) {
+    return (
+      <div className={Styles.customTooltip}>
+        <p className={Styles.label}>{payload[0].value + " min"}</p>
+      </div>
+    );
+  }
+  return null;
 };
 
 AverageSessionDurationChart.propTypes = {

@@ -24,6 +24,7 @@ const ScoreChart = ({ itemClass, score }) => {
             endAngle={-360}
             dataKey="value"
           >
+            {/* remplir le pie de cell  [cell celule du tableau]  */}
             {data.map((entry, index) => {
               if (index === 1) {
                 return <Cell key={`cell-${index}`} fill="#FFFFFF" />;

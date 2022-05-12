@@ -6,6 +6,9 @@ import {
   USER_PERFORMANCE,
 } from "./data_mocks";
 
+/**
+ *
+ */
 const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
   let i = 0;
 
@@ -29,7 +32,7 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
       const url = "http://localhost:3000";
 
       const dataPref = ["", "/activity", "/average-sessions", "/performance"];
-
+      // map sur
       dataPref.map((pref) => {
         fetch(`${url}/user/${id}${pref}`)
           .then((response) => {
@@ -47,7 +50,7 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
     }
     return dataRef.current;
   };
-  useImperativeHandle(ref, () => ({ getDatas: getData }));
+  useImperativeHandle(ref, () => ({ getDatas: getData })); // rendre des duction accesible ailler que dans le compsant
 });
 
 export default UseApiTest;

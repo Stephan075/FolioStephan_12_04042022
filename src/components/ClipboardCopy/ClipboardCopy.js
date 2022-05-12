@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Styles from "./ClipboardCopy.module.scss";
 
 export default function ClipboardCopy({ copyText }) {
@@ -12,8 +12,6 @@ export default function ClipboardCopy({ copyText }) {
   async function copyTextToClipboard(text) {
     if ("clipboard" in navigator) {
       return await navigator.clipboard.writeText(text);
-    } else {
-      return navigator.clipboard("copy", true, text);
     }
   }
 

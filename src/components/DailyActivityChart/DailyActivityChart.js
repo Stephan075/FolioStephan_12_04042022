@@ -12,21 +12,7 @@ import {
 import { dayFormatters } from "../../utils/dataFormatting";
 import Styles from "./DailyActivityChart.module.scss";
 
-/**
- *
- * @param {*} param0
- * @returns
- */
 const DailyActivityChart = ({ itemClass, activity }) => {
-  const Radius = ({ background }) => {
-    return (
-      <span
-        style={{ background: `${background}` }}
-        className={Styles.radius}
-      ></span>
-    );
-  };
-
   return (
     <div className={itemClass} style={{ width: "100%", height: 350 }}>
       <h2 className={Styles.DailyActivityTitle}>Activité quotidienne</h2>
@@ -69,12 +55,7 @@ const DailyActivityChart = ({ itemClass, activity }) => {
             dx={30}
           />
 
-          <Tooltip
-            content={<CustomTooltip />}
-            cursor={{
-              fill: "rgba(0, 0, 0, 0.1)",
-            }}
-          />
+          <Tooltip content={<CustomTooltip />} />
           <Bar
             radius={[50, 50, 0, 0]}
             legendType="circle"
@@ -97,7 +78,23 @@ const DailyActivityChart = ({ itemClass, activity }) => {
   );
 };
 
-function CustomTooltip({ active, payload }) {
+const Radius = ({ background }) => {
+  return (
+    <span
+      style={{ background: `${background}` }}
+      className={Styles.radius}
+    ></span>
+  );
+};
+
+/**
+ *
+ * @param {Boolean} 	active   the active tooltip
+ * @param {Array} payload Data to display in the tooltip
+ */
+// payload[0] - bar kilograme
+// payload[1] - bar Calories
+const CustomTooltip = ({ active, payload }) => {
   if (active) {
     return (
       <div className={Styles.customTooltip}>
@@ -107,7 +104,7 @@ function CustomTooltip({ active, payload }) {
     );
   }
   return null;
-}
+};
 
 DailyActivityChart.propTypes = {
   activity: PropTypes.array.isRequired,

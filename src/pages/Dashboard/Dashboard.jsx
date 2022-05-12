@@ -26,10 +26,12 @@ const Dashboard = () => {
   id = parseInt(id);
 
   // ref juste une variable en gros
-  const dataRef = useRef();
-  const compoRef = useRef();
+  const ref = useRef(); // react Dom
+  const dataRef = useRef(); // composant
 
-  const USER_MAIN = compoRef.current?.getDatas().USER_MAIN_DATA[0];
+  console.log({ dataRef, ref });
+
+  const USER_MAIN = ref.current?.getDatas().USER_MAIN_DATA[0];
   const [keyData, setkeyData] = useState(false);
   const [activity, setActivity] = useState([]);
   const [session, setSession] = useState([]);
@@ -40,7 +42,7 @@ const Dashboard = () => {
    * data user MAIN
    */
   useEffect(() => {
-    const path = compoRef.current?.getDatas().USER_MAIN_DATA[0];
+    const path = ref.current?.getDatas().USER_MAIN_DATA[0];
     // console.log(path);
     if (path) {
       setkeyData([
@@ -77,7 +79,7 @@ const Dashboard = () => {
    * Data user ACTIVITY "Activité quitidienne"
    */
   useEffect(() => {
-    const path = compoRef.current?.getDatas().USER_ACTIVITY[0];
+    const path = ref.current?.getDatas().USER_ACTIVITY[0];
     if (path) {
       return setActivity(path.sessions);
     }
@@ -87,7 +89,7 @@ const Dashboard = () => {
    * Data user SESSIONS "Durée moyenne des sessions"
    */
   useEffect(() => {
-    const path = compoRef.current?.getDatas().USER_AVERAGE_SESSIONS[0];
+    const path = ref.current?.getDatas().USER_AVERAGE_SESSIONS[0];
     if (path) {
       return setSession(path.sessions);
     }
@@ -97,7 +99,7 @@ const Dashboard = () => {
    * Data user PERFORMANCE
    */
   useEffect(() => {
-    const path = [compoRef.current?.getDatas().USER_PERFORMANCE[0]];
+    const path = [ref.current?.getDatas().USER_PERFORMANCE[0]];
     if (path[0]?.data) {
       const data = path[0].data;
       let kind = path[0].kind;
@@ -115,7 +117,7 @@ const Dashboard = () => {
    * Data user SCORE
    */
   useEffect(() => {
-    const path = compoRef.current?.getDatas().USER_MAIN_DATA[0];
+    const path = ref.current?.getDatas().USER_MAIN_DATA[0];
     if (path) {
       let score = path.score || path.todayScore;
       setDataScore(score);
@@ -125,12 +127,7 @@ const Dashboard = () => {
   return (
     <>
       {/* initialValue default = true ; false = api connection */}
-      <UseApiTest
-        initialValue={false}
-        dataRef={dataRef}
-        id={id}
-        ref={compoRef}
-      />
+      <UseApiTest initialValue={false} dataRef={dataRef} id={id} ref={ref} />
       {keyData && activity && session ? (
         <>
           <div>
