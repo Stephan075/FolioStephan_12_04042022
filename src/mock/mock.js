@@ -48,9 +48,10 @@ const UseApiTest = forwardRef(({ initialValue = true, dataRef, id }, ref) => {
           });
       });
     }
+
     return dataRef.current;
   };
-  useImperativeHandle(ref, () => ({ getDatas: getData })); // rendre des duction accesible ailler que dans le compsant
+  useImperativeHandle(ref, () => ({ getDatas: getData }));
 });
 
 export default UseApiTest;

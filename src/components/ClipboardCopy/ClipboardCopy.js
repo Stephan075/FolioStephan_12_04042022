@@ -7,7 +7,7 @@ export default function ClipboardCopy({ copyText }) {
   /**
    *
    * @param {string} text
-   * @returns
+   * @return { Promise }
    */
   async function copyTextToClipboard(text) {
     if ("clipboard" in navigator) {

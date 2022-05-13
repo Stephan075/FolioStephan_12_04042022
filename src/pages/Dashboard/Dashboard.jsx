@@ -25,11 +25,8 @@ const Dashboard = () => {
   let { id } = useParams();
   id = parseInt(id);
 
-  // ref juste une variable en gros
   const ref = useRef(); // react Dom
   const dataRef = useRef(); // composant
-
-  console.log({ dataRef, ref });
 
   const USER_MAIN = ref.current?.getDatas().USER_MAIN_DATA[0];
   const [keyData, setkeyData] = useState(false);
@@ -103,7 +100,7 @@ const Dashboard = () => {
     if (path[0]?.data) {
       const data = path[0].data;
       let kind = path[0].kind;
-      // Relier le king et les data grace un kind disponible dans le tabeau data
+      // Relier le kind et les data grace un kind disponible dans le tabeau data
       const dataLinkWithTheKind = data.map((perf) => {
         perf.kind = kind[perf.kind];
         return perf;

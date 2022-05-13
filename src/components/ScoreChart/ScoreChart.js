@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import Styles from "./ScoreChart.module.scss";
 
-import { Cell, Label, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 const ScoreChart = ({ itemClass, score }) => {
   // https://recharts.org/en-US/api/RadialBarChart
