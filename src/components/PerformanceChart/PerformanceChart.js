@@ -50,9 +50,12 @@ const PerformanceChart = ({ itemClass, performance }) => {
   ];
 
   return (
-    <div className={itemClass} style={{ width: "100%", height: 263 }}>
-      <ResponsiveContainer>
-        <RadarChart outerRadius="70%" data={performance}>
+    <div className={itemClass} style={{ width: "100%", height: "100%" }}>
+      <ResponsiveContainer width="100%" height="100%">
+        <RadarChart
+          data={performance}
+          outerRadius={window.innerWidth > 1340 ? "70%" : "45%"}
+        >
           <PolarGrid radialLines={false} />
 
           <PolarAngleAxis
