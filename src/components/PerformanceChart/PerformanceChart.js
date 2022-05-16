@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
 import {
+  RadarChart,
   PolarAngleAxis,
   PolarGrid,
   Radar,
-  RadarChart,
   ResponsiveContainer,
 } from "recharts";
-
+// Component Performance Chart
 const PerformanceChart = ({ itemClass, performance }) => {
   // data test
   const dataTest = [
@@ -49,7 +49,6 @@ const PerformanceChart = ({ itemClass, performance }) => {
     },
   ];
 
-  // return null;
   return (
     <div className={itemClass} style={{ width: "100%", height: 263 }}>
       <ResponsiveContainer>

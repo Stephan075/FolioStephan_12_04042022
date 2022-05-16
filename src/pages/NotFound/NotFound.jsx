@@ -3,9 +3,7 @@ import Styles from "./NotFound.module.scss";
 import data from "../../mock/mock_test";
 import ClipboardCopy from "../../components/ClipboardCopy/ClipboardCopy";
 
-/**
- * dashbord with all the component of the chart
- */
+// Component call in case of error
 const NotFound = () => {
   const [isUser, setIsUser] = useState(0);
 

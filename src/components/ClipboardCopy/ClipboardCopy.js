@@ -1,6 +1,11 @@
 import { useState } from "react";
 import Styles from "./ClipboardCopy.module.scss";
 
+/**
+ *
+ * @param {string} copyText
+ * @returns @returns {HTMLElement}
+ */
 export default function ClipboardCopy({ copyText }) {
   const [isCopied, setIsCopied] = useState(false);
 

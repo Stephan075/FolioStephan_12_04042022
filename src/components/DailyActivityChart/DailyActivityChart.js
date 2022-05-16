@@ -12,6 +12,7 @@ import {
 import { dayFormatters } from "../../utils/dataFormatting";
 import Styles from "./DailyActivityChart.module.scss";
 
+// Component Daily Activity Chart
 const DailyActivityChart = ({ itemClass, activity }) => {
   return (
     <div className={itemClass} style={{ width: "100%", height: 350 }}>
@@ -78,6 +79,11 @@ const DailyActivityChart = ({ itemClass, activity }) => {
   );
 };
 
+/**
+ *
+ * @param { String } background CSS color
+ * @returns {HTMLElement}
+ */
 const Radius = ({ background }) => {
   return (
     <span
@@ -91,6 +97,7 @@ const Radius = ({ background }) => {
  *
  * @param {Boolean} 	active   the active tooltip
  * @param {Array} payload Data to display in the tooltip
+ * @returns {HTMLElement}
  */
 // payload[0] - bar kilograme
 // payload[1] - bar Calories

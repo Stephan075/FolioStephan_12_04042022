@@ -28,10 +28,9 @@ const nameHeadersLinks = [
  * @returns element li
  */
 const ListItemLink = ({ to, name }) => (
-  /**
-  L'utilisation de children est très similaire à render.
-  Mais il existe une différence importante : le composant est appelé même si la route ne match pas.
-   */
+  //The use of children is very similar to render.
+  //But there is an important difference: the component is called even if the route does not match.
+
   <Route
     children={() => (
       <li className={Styles.navItem}>
@@ -41,10 +40,7 @@ const ListItemLink = ({ to, name }) => (
   />
 );
 
-/**
- *
- * @returns nav Header link
- */
+// Component Header
 const Header = () => {
   return (
     <header className={Styles.header}>

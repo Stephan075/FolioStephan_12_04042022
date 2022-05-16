@@ -1,6 +1,5 @@
 import { Route, Link } from "react-router-dom";
 import Styles from "./SideMenu.module.scss";
-import logo from "../../assets/logo/logo.png";
 
 import icon_meditation from "../../assets/icons/meditation.svg";
 import icon_swim from "../../assets/icons/swim.svg";
@@ -42,7 +41,7 @@ const ListItemLink = ({ to, icon }) => (
     )}
   />
 );
-
+// Component SideMenu
 const SideMenu = () => {
   return (
     <div className={Styles.sideMenu}>

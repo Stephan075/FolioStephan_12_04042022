@@ -1,11 +1,7 @@
 import PropTypes from "prop-types";
 import Styles from "./InfoCard.module.scss";
 
-/**
- *
- * Displays the user's data in maps.
- *
- */
+// Component Info Card, Displays the user's data in maps.
 const InfoCard = ({ itemClass, keyData }) => {
   return (
     <div className={itemClass}>

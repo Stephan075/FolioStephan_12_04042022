@@ -4,6 +4,7 @@ import Styles from "./ScoreChart.module.scss";
 
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
+// Component Score Chart
 const ScoreChart = ({ itemClass, score }) => {
   // https://recharts.org/en-US/api/RadialBarChart
   const data = [
@@ -24,7 +25,7 @@ const ScoreChart = ({ itemClass, score }) => {
             endAngle={-360}
             dataKey="value"
           >
-            {/* remplir le pie de cell  [cell celule du tableau]  */}
+            {/* fill in the cell pie [cell cell of the table].  */}
             {data.map((entry, index) => {
               if (index === 1) {
                 return <Cell key={`cell-${index}`} fill="#FFFFFF" />;
@@ -41,7 +42,11 @@ const ScoreChart = ({ itemClass, score }) => {
   );
 };
 
-// return jsx [p,span]
+/**
+ *
+ * @param {Number} 	score  score user
+ * @returns {HTMLElement}
+ */
 const CustomLabel = ({ score }) => {
   return (
     <p

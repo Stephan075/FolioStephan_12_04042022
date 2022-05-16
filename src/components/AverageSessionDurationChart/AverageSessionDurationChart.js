@@ -14,6 +14,7 @@ import {
 
 import { dayFormatters_dayOfTheweek } from "../../utils/dataFormatting";
 
+// Component Average Session Duration Chart
 const AverageSessionDurationChart = ({ itemClass, data }) => {
   // data test
   const dataTest = [
@@ -80,7 +81,6 @@ const AverageSessionDurationChart = ({ itemClass, data }) => {
           />
           <YAxis domain={[0, "dataMax + 50"]} hide={true} />
           <Line
-            connectNulls
             type="monotone"
             dataKey="sessionLength"
             stroke="#fff"
@@ -116,6 +116,10 @@ const AverageSessionDurationChart = ({ itemClass, data }) => {
   );
 };
 
+/**
+ *Paragraph in the chart "AverageSessionDurationChart"
+ * @returns {HTMLElement}
+ */
 const CustomizedLegend = () => {
   return (
     <p className={Styles.customLegend}>
@@ -125,6 +129,12 @@ const CustomizedLegend = () => {
   );
 };
 
+/**
+ *
+ * @param {Boolean} 	active   the active tooltip
+ * @param {Array} payload Data to display in the tooltip
+ * @returns {HTMLElement}
+ */
 const CustomTooltip = ({ active, payload }) => {
   // https://recharts.org/en-US/guide/customize
   if (active && payload) {

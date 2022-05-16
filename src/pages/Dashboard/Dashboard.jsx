@@ -7,7 +7,7 @@ import AverageSessionDurationChart from "../../components/AverageSessionDuration
 import Styles from "./Dashboard.module.scss";
 import ScoreChart from "../../components/ScoreChart/ScoreChart";
 import PerformanceChart from "../../components/PerformanceChart/PerformanceChart";
-import UseApiTest from "../../mock/mock";
+import UseApi from "../../mock/mock";
 
 // icon
 import icon_energy from "../../assets/icons/energy.png";
@@ -18,9 +18,7 @@ import icon_cheeseburger from "../../assets/icons/cheeseburger.png";
 import { numberFormatter } from "../../utils/dataFormatting";
 import NotFound from "../NotFound/NotFound";
 
-/**
- * dashbord with all the component of the chart
- */
+//Dashbord with all the component of the chart
 const Dashboard = () => {
   let { id } = useParams();
   id = parseInt(id);
@@ -29,7 +27,7 @@ const Dashboard = () => {
   const dataRef = useRef(); // composant
 
   const USER_MAIN = ref.current?.getDatas().USER_MAIN_DATA[0];
-  const [keyData, setkeyData] = useState(false);
+  const [keyData, setkeyData] = useState(false); //card
   const [activity, setActivity] = useState([]);
   const [session, setSession] = useState([]);
   const [performance, setPerformance] = useState([]);
@@ -73,7 +71,7 @@ const Dashboard = () => {
   }, []);
 
   /**
-   * Data user ACTIVITY "Activité quitidienne"
+   * Data user ACTIVITY
    */
   useEffect(() => {
     const path = ref.current?.getDatas().USER_ACTIVITY[0];
@@ -83,7 +81,7 @@ const Dashboard = () => {
   }, []);
 
   /**
-   * Data user SESSIONS "Durée moyenne des sessions"
+   * Data user SESSIONS "Average session duration"
    */
   useEffect(() => {
     const path = ref.current?.getDatas().USER_AVERAGE_SESSIONS[0];
@@ -100,7 +98,7 @@ const Dashboard = () => {
     if (path[0]?.data) {
       const data = path[0].data;
       let kind = path[0].kind;
-      // Relier le kind et les data grace un kind disponible dans le tabeau data
+      // Link the kind and the data with a kind available in the data table
       const dataLinkWithTheKind = data.map((perf) => {
         perf.kind = kind[perf.kind];
         return perf;
@@ -124,7 +122,7 @@ const Dashboard = () => {
   return (
     <>
       {/* initialValue default = true ; false = api connection */}
-      <UseApiTest initialValue={false} dataRef={dataRef} id={id} ref={ref} />
+      <UseApi initialValue={false} dataRef={dataRef} id={id} ref={ref} />
       {keyData && activity && session ? (
         <>
           <div>
